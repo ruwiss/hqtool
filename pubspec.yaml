@@ -1,6 +1,6 @@
 name: hqtool
 description: AI SRT TOOL
-version: 1.0.0
+version: 1.0.1
 homepage: https://www.youtube.com/@hq_net
 repository: https://github.com/ruwiss/hqtool
 
@@ -23,3 +23,6 @@ dev_dependencies:
 
 platforms:
   windows:
+
+executables:
+  hqtool:
