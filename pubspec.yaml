@@ -1,7 +1,8 @@
 name: hqtool
 description: AI SRT TOOL
 version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+homepage: https://www.youtube.com/@hq_net
+repository: https://github.com/ruwiss/hqtool
 
 environment:
   sdk: ^3.5.4
