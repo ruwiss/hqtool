@@ -31,16 +31,25 @@ class FileService {
     return completer.future;
   }
 
-  String _outputPath(String fileName, {String? title}) {
+  String _outputPath({String? fileName, String? title}) {
     final String? formattedTitle =
-        YouTubeTranscriptScrapper().youtubeVideoTitle?.onlyLatin ??
-            title?.onlyLatin;
+        YouTubeTranscriptScrapper().youtubeVideoTitle?.toFileName ??
+            title?.toFileName;
+
+    const String folderName = "output";
+
+    if (fileName == null) return p.join(Directory.current.path, folderName);
 
     if (formattedTitle == null) {
-      return p.join(Directory.current.path, "output", fileName);
+      return p.join(Directory.current.path, folderName, fileName);
     } else {
-      return p.join(Directory.current.path, "output", formattedTitle, fileName);
+      return p.join(
+          Directory.current.path, folderName, formattedTitle, fileName);
     }
+  }
+
+  void openOutputFolder() {
+    Process.start('explorer', [_outputPath()]);
   }
 
   Future<String> writeFile(
@@ -49,7 +58,7 @@ class FileService {
       String? title,
       bool isHidden = false}) async {
     try {
-      final File file = File(_outputPath(fileName, title: title));
+      final File file = File(_outputPath(fileName: fileName, title: title));
       await file.create(recursive: true);
       await file.writeAsString(content);
       if (isHidden) {

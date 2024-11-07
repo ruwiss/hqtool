@@ -33,9 +33,9 @@ extension StringExtensions on String {
         .hasMatch(this);
   }
 
-  String get onlyLatin {
+  String get toFileName {
     if (isEmpty) return '';
     final regex = RegExp(r'[^a-zA-Z\s]+');
-    return replaceAll(regex, '');
+    return replaceAll(regex, '').replaceAll(" ", "_");
   }
 }

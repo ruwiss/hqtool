@@ -111,14 +111,14 @@ Future<void> _selectTranslateSrt() async {
     final decompressedSrtContent =
         DataCompressor.instance.decompressContent(result.srt);
 
-    final outputPath = await FileService.instance
+    await FileService.instance
         .writeFile(content: decompressedSrtContent, fileName: "output.srt");
 
     FileService.instance
         .writeFile(content: result.summary, fileName: "summary.txt");
 
-    stdout.writeln("");
-    stdout.writeln("Output: $outputPath");
+    FileService.instance.openOutputFolder();
+    stdout.writeln("İşlem Tamamlandı");
     stdout.writeln("");
     stdout.writeln("İşte yazılan altyazının özeti:");
     stdout.writeln(result.summary);
@@ -159,13 +159,14 @@ Future<void> _selectSpeechTextGenerator() async {
   final responseText = await GenerativeAi.generateSpeechText(
       compressedContent: compressedContent, language: language);
 
-  final outputPath = await FileService.instance.writeFile(
+  await FileService.instance.writeFile(
     content: responseText,
     title: lastCompressed?.videoTitle,
     fileName: 'speechText.md',
   );
 
-  stdout.writeln("Output: $outputPath");
+  stdout.writeln("İşlem Tamamlandı");
+  FileService.instance.openOutputFolder();
 }
 
 Future<String> _youtubeToSrt() async {
