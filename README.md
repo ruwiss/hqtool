@@ -1,5 +1,7 @@
 # AI SRT TOOL
 
+**NOT:** Bu paket yalnızca **Windows** platformunda çalışmak üzere tasarlanmıştır.
+
 ## HQTOOL Nedir? Ne Yapabilir?
 
 Youtube linkinden altyazıları çekip / .srt dosyasını okuyup sıkıştırdıktan sonra Google Gemini API kullanarak istenilen dile dönüştürme işlemi yapabilir.
