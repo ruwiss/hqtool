@@ -1,5 +1,3 @@
-# AI SRT TOOL
-
 **NOT:** Bu paket yalnızca **Windows** platformunda çalışmak üzere tasarlanmıştır.
 
 ## HQTOOL Nedir? Ne Yapabilir?
